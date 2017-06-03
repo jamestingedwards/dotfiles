@@ -1,7 +1,33 @@
 ---
 - hosts: localhost
   tasks:
-  - name: ensure homebrew is updated 
+  - name: Ensure presence of neovim, python3, hugo (Homebrew)
     homebrew:
-        state: latest
+        name: "{{item}}"
+        state: present
         update_homebrew: yes
+    with_items:
+        - neovim
+        - python3
+        - hugo
+
+  - name: Ensure presence of MacVim, Anki, RTM, Slack (Homebrew Cask)
+    homebrew_cask:
+        name: "{{item}}"
+        state: present
+    with_items:
+        - macvim
+        - iterm2
+        - google-chrome
+        - anki
+        - remember-the-milk
+        - slack
+        - skype
+        - flux
+        - freemind
+        - dropbox
+        - google-drive
+        - tripmode
+        - private-internet-access
+        - vlc
+
