@@ -23,6 +23,7 @@
         - remember-the-milk
         - slack
         - skype
+        - spectacle
         - flux
         - freemind
         - dropbox
@@ -30,4 +31,7 @@
         - tripmode
         - private-internet-access
         - vlc
+
+  - name: Setup MacOSX defaults
+
 
