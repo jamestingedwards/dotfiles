@@ -8,10 +8,14 @@
         update_homebrew: yes
     with_items:
         - neovim
-        - python3
+        - python
         - hugo
+        - git
+        - pandoc
+        - lynx
+        - tldr
 
-  - name: Ensure presence of MacVim, Anki, RTM, Slack (Homebrew Cask)
+  - name: Ensure presence of GUI software (Homebrew Cask)
     homebrew_cask:
         name: "{{item}}"
         state: present
@@ -20,18 +24,26 @@
         - iterm2
         - google-chrome
         - anki
-        - remember-the-milk
         - slack
         - skype
         - spectacle
         - flux
         - freemind
         - dropbox
-        - google-drive
+        - google-drive-filestream
         - tripmode
-        - private-internet-access
         - vlc
+        - selfcontrol
+        - microsoft-office
+        - 1password
 
   - name: Setup MacOSX defaults
+
+    osx_defaults:
+        domain: com.apple.screencapture
+        key: location
+        type: string
+        value: ~/Downloads
+
 
 
