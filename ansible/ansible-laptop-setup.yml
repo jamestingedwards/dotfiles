@@ -1,0 +1,49 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Ensure presence of neovim, python3, hugo (Homebrew)
+    homebrew:
+        name: "{{item}}"
+        state: present
+        update_homebrew: yes
+    with_items:
+        - neovim
+        - python
+        - hugo
+        - git
+        - pandoc
+        - lynx
+        - tldr
+
+  - name: Ensure presence of GUI software (Homebrew Cask)
+    homebrew_cask:
+        name: "{{item}}"
+        state: present
+    with_items:
+        - macvim
+        - iterm2
+        - google-chrome
+        - anki
+        - slack
+        - skype
+        - spectacle
+        - flux
+        - freemind
+        - dropbox
+        - google-drive-filestream
+        - tripmode
+        - vlc
+        - selfcontrol
+        - microsoft-office
+        - 1password
+
+  - name: Setup MacOSX defaults
+
+    osx_defaults:
+        domain: com.apple.screencapture
+        key: location
+        type: string
+        value: ~/Downloads
+
+
+
